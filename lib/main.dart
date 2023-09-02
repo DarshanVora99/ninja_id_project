@@ -6,7 +6,13 @@ void main() {
   ));
 }
 
-class Ninja_Id_Project extends StatelessWidget {
+class Ninja_Id_Project extends StatefulWidget {
+  @override
+  State<Ninja_Id_Project> createState() => _Ninja_Id_ProjectState();
+}
+
+class _Ninja_Id_ProjectState extends State<Ninja_Id_Project> {
+  int rollNo = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,6 +22,15 @@ class Ninja_Id_Project extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.grey[800],
         elevation: 0.0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => {
+          setState(() {
+            rollNo += 1;
+          })
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.grey[800],
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
@@ -63,6 +78,25 @@ class Ninja_Id_Project extends StatelessWidget {
             ),
             Text(
               "22110769",
+              style: TextStyle(
+                color: Colors.amber[300],
+                fontSize: 25.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            Text(
+              "Roll No",
+              style: TextStyle(
+                color: Colors.grey[200],
+                fontSize: 20.0,
+                letterSpacing: 2.0,
+              ),
+            ),
+            Text(
+              "$rollNo",
               style: TextStyle(
                 color: Colors.amber[300],
                 fontSize: 25.0,
